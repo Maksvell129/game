@@ -16,8 +16,6 @@ namespace game
             table=Create(array);
         }
 
-
-
         private ConsoleTable Create(string[][] array)
         {
             array[0][0] = "PC\\User";
