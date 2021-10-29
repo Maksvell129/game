@@ -96,11 +96,7 @@ namespace game
         }
 
         public static string ComputerMove(string[] args)
-        {
-            //var random = RandomNumberGenerator.Create();
-            //var bytes = new byte[sizeof(int)];
-            //random.GetNonZeroBytes(bytes);
-            //int move = Math.Abs(BitConverter.ToInt32(bytes) % args.Length);
+        {           
             return args[RandomNumberGenerator.GetInt32(args.Length)];
         }
     }

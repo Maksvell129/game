@@ -40,16 +40,7 @@ namespace game
 
         public static string GetKey()
         {
-            //int[] numbers = new int[4];
-            //RandomNumberGenerator random = RandomNumberGenerator.Create();
-            //var bytes = new byte[sizeof(int)];
-            //random.GetNonZeroBytes(bytes);
-            //string key = String.Empty;
-            //for (int i = 0; i < numbers.Length; i++)
-            //{
-            //    numbers[i] = Math.Abs(BitConverter.ToInt32(bytes));
-            //    key += numbers[i].ToString("X");
-            //}
+            
             byte[] key = new Byte[16];
             RandomNumberGenerator random = RandomNumberGenerator.Create();
             random.GetBytes(key);

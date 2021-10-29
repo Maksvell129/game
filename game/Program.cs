@@ -8,7 +8,12 @@ namespace game
 {
     class Program
     {
-        
+        static bool UniqueParameters(string[] args)
+        {
+            IEnumerable<string> Unique = args.Distinct();
+            return (Unique.Count() == args.Length) ? true : false;
+        }
+
         static string GetValidMove(Dictionary<string, string> moves)
         {
             Rules.Menu(moves);
@@ -39,10 +44,10 @@ namespace game
                 }
             }
         }
-
+        
         static void Main(string[] args)
         {
-            if (args.Length >= 3 && args.Length % 2 != 0)
+            if (args.Length >= 3 && args.Length % 2 != 0 && UniqueParameters(args))
             {
                 Dictionary<string, string> moves = Rules.CreateMoves(args);
                 string[][] WinLoseTable = Rules.CreateTable(args); ;
@@ -77,7 +82,7 @@ namespace game
             }
             else
             {
-                Console.WriteLine("Incorrect number of parameters. Example: game.cs rock paper scissors lizard spock");
+                Console.WriteLine("Incorrect input. Example: game.cs rock paper scissors lizard Spock");
             }
         }
     }
