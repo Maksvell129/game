@@ -5,8 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 
+public static class Constants
+{
+    public const int KEY_LENGTH = 128;
+}
+
 namespace game
 {
+
     class HMACGenerator
     {
         public static string HMACGenerating(string move,string key)
@@ -32,8 +38,7 @@ namespace game
 
         public static string GetKey()
         {
-           
-            byte[] key = new Byte[16];
+            byte[] key = new Byte[Constants.KEY_LENGTH / 8];
             RandomNumberGenerator random = RandomNumberGenerator.Create();
             random.GetBytes(key);
             return BitConverter.ToString(key).Replace("-","");
