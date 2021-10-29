@@ -31,12 +31,9 @@ namespace game
                 else
                 {
                     int a;
-                    if (int.TryParse(move, out a))
+                    if (int.TryParse(move, out a) && a > 0 && a <= moves.Count - 2)
                     {
-                        if (a > 0 && a <= moves.Count - 2)
-                        {
                             return move;
-                        }
                     }
                     else
                     {
