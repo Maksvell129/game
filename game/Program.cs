@@ -8,9 +8,11 @@ namespace game
 {
     class Program
     {
-        static bool UniqueParameters(string[] args)
+        static bool UniqueParameters(string[] args,ref string mistake)
         {
             IEnumerable<string> Unique = args.Distinct();
+            if (!(Unique.Count() == args.Length))
+                mistake = "Repeating parameters. Example: game.cs rock paper scissors lizard Spocks";
             return (Unique.Count() == args.Length) ? true : false;
         }
 
@@ -47,7 +49,8 @@ namespace game
         
         static void Main(string[] args)
         {
-            if (args.Length >= 3 && args.Length % 2 != 0 && UniqueParameters(args))
+            string mistake= "Incorrect number of parameters, must be more than three and odd. Example: game.cs rock paper scissors lizard Spock";
+            if ((args.Length >= 3 && args.Length % 2 != 0) && UniqueParameters(args,ref mistake))
             {
                 Dictionary<string, string> moves = Rules.CreateMoves(args);
                 string[][] WinLoseTable = Rules.CreateTable(args); ;
@@ -82,7 +85,7 @@ namespace game
             }
             else
             {
-                Console.WriteLine("Incorrect input. Example: game.cs rock paper scissors lizard Spock");
+                Console.WriteLine(mistake);
             }
         }
     }
