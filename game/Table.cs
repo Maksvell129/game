@@ -27,6 +27,7 @@ namespace game
             return newTable;
         }
 
+
         public override string ToString()
         {
             return table.ToStringAlternative();
